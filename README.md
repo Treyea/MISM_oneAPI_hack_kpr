@@ -28,6 +28,8 @@ The system sends real-time alerts to authorities for quicker response. Automated
 ## About the Dataset
 The Proposed Highway Incidents Detection Dataset (HWID12) is the first dataset designed to advance video action recognition for real-time highway incident detection, addressing a significant challenge in intelligent transportation systems. Currently, the absence of such datasets has hindered the application of recent breakthroughs in video action classification. HWID12 includes over 2,780 video clips, each 3 to 8 seconds long, capturing moments before, during, and after incidents. These clips were manually segmented from accident compilation videos sourced from YouTube and other platforms.
 
+[link](https://www.kaggle.com/datasets/landrykezebou/hwid12-highway-incidents-detection-dataset)
+
 ## Conclusion
 
 ### Summary

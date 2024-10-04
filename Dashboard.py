@@ -4,18 +4,21 @@ import os
 
 st.set_page_config(layout="wide")
 
-# List of video files and their corresponding camera titles
+# Get the current working directory for reference
+base_dir = os.getcwd()
+
+# List of video files and their corresponding camera titles (using absolute paths)
 video_files = [
-    os.path.join("processed_videos", "video1_compressed.mp4"),
-    os.path.join("processed_videos", "video2_compressed.mp4"),
-    os.path.join("processed_videos", "pedestrian_hit.mp4"),
-    os.path.join("processed_videos", "video5_compressed.mp4"),
-    os.path.join("processed_videos", "video6_compressed.mp4"),
-    os.path.join("videos", "video1.mp4"),
-    os.path.join("videos", "video2.mp4"),
-    os.path.join("videos", "video4.mp4"),
-    os.path.join("videos", "video5.mp4"),
-    os.path.join("videos", "video6.mp4"),
+    os.path.abspath(os.path.join(base_dir, "processed_videos", "video1_compressed.mp4")),
+    os.path.abspath(os.path.join(base_dir, "processed_videos", "video2_compressed.mp4")),
+    os.path.abspath(os.path.join(base_dir, "processed_videos", "pedestrian_hit.mp4")),
+    os.path.abspath(os.path.join(base_dir, "processed_videos", "video5_compressed.mp4")),
+    os.path.abspath(os.path.join(base_dir, "processed_videos", "video6_compressed.mp4")),
+    os.path.abspath(os.path.join(base_dir, "videos", "video1.mp4")),
+    os.path.abspath(os.path.join(base_dir, "videos", "video2.mp4")),
+    os.path.abspath(os.path.join(base_dir, "videos", "video4.mp4")),
+    os.path.abspath(os.path.join(base_dir, "videos", "video5.mp4")),
+    os.path.abspath(os.path.join(base_dir, "videos", "video6.mp4")),
 ]
 
 # Function to generate random locations
@@ -38,7 +41,8 @@ def generate_random_location():
 def log_video_data(video):
     tag = random.choice([0, 1])
     location_name, location_coordinates = generate_random_location()
-    with open(os.path.join(os.getcwd(), "video_log.txt"), "a") as f:
+    log_path = os.path.abspath(os.path.join(base_dir, "video_log.txt"))
+    with open(log_path, "a") as f:
         f.write(f"{video}, {tag}, {location_name}, ({location_coordinates[0]}, {location_coordinates[1]})\n")
 
 # Display videos in rows of three
